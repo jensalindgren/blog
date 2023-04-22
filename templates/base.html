@@ -27,6 +27,7 @@
         <!-- Navbar content -->
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Lets Train<span class="red-o"></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Post<span class="red-o"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <a><i class="fas fa-bars"></i></a>
@@ -49,6 +50,20 @@
             </div>
         </div>
       </nav>
+
+      <!-- Messagers -->
+      <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
