@@ -1,108 +1,215 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# My Training Blog
 
-Welcome Matt Rudge,
+## General Information
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This is a blog for training purposes. You can register accounts and post information and traning tips for others to see. You can also comment on other posts. Like them and unlike them. You can also edit and delete your own posts. You can also upload training pictures. Link to the live site can be found [here](https://my-training-blog.herokuapp.com/).
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Table of Contents
 
-## Gitpod Reminders
+- [My Training Blog](#my-training-blog)
+  - [General Information](#general-information)
+  - [Table of Contents](#table-of-contents)
+  - [Project Goals](#project-goals)
+  - [User Stories](#user-stories)
+    - [Start](#start)
+  - [Structure](#structure)
+  - [Database Model](#database-model)
+  - [Wireframes](#wireframes)
+  - [Color Scheme](#color-scheme)
+  - [Features](#features)
+    - [General Features](#general-features)
+    - [Home Page](#home-page)
+  - [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Frameworks, Libraries \& Programs](#frameworks-libraries--programs)
+    - [Packages](#packages)
+    - [Databases](#databases)
+    - [Tools Used](#tools-used)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+    - [Deploying to Heroku](#deploying-to-heroku)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+    - [Code](#code)
+    - [Acknowledgements](#acknowledgements)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Project Goals
 
-`python3 -m http.server`
+Is to create a blog where people can post training tips and information. Also to create a community where people can share their training experiences and help each other out.
 
-A blue button should appear to click: _Make Public_,
+## User Stories
 
-Another blue button should appear to click: _Open Browser_.
+GitHub projects was used as my project management tool to track user stories.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Start
+I will implement more user stories as I go along. I will also add more features to the site as I go along.
+![Alt text](/assets/wireframes/user_story_1.png?raw=true "User Story 1")
+I was able to get the first three user story's done.
+![Alt text](/assets/wireframes/user_story_2.png?raw=true "User Story 2")
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+## Structure
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The website has been organized in a Hierarchical Tree Structure to ensure the site user navigates through the site effortlessly and intuitively.
 
-To log into the Heroku toolbelt CLI:
+## Database Model
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+The type of database being used for the is relational database being managed using PostgreSQL.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Wireframes
 
-------
+Balsamiq has been used to showcase the appearance of the site and display structure.
 
-## Release History
+## Color Scheme
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The color scheme has been chosen to be a dark theme with a light theme for the text. This is to make the site more appealing to the eye and to make the text more readable.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Features
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### General Features
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- The website has been designed from a mobile first perspective.
+- Site is responsive and will adapt to different screen sizes.
+- Navigation bar is fixed to the top of the page.
+- Search bar is available on all pages.
+- Footer is available on all pages. And contains links to social media.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Home Page
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Technologies Used
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Languages
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- HTML5
+- CSS3
+- Python
+- JavaScript
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Frameworks, Libraries & Programs
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- Django
+  - Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.
+- Django Templates
+  - Django templates are used to render the data from the backend to the frontend.
+- Font Awesome
+  - Font Awesome is a font and icon toolkit based on CSS and LESS.
+- Bootstrap
+  - Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.
+- jQuery
+  - jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Packages
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+- Gunicorn
+  - Gunicorn was used as Python WSGI HTTP Server for UNIX to support the deployment of Django application.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- SummerNote
+  - SummerNote is a JavaScript library that allows you to create a WYSIWYG editor.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+- Cloudinary
+  - Cloudinary is a cloud-based image and video management service.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Databases
 
-------
+- ElephantSQL
+  - ElephantSQL is a PostgreSQL database as a service. It is a cloud-based database that is managed by the vendor.
 
-## FAQ about the uptime script
+- Heroku
+  - Heroku Postgres database was used in production, as a service based on PostgreSQL provided by Heroku.
 
-**Why have you added this script?**
+### Tools Used
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- Git
+  - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 
-**How will this affect me?**
+- GitHub
+  - GitHub is used to store the project code after being pushed from Git.
+  
+- Gitpod
+  - GitPod was used for writing code, committing, and then pushing to GitHub.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+- Balsamiq
+  - Balsamiq was used to create the wireframes during the design process.
+  
+- Am I Responsive
+  - Am I Responsive was used to preview the website across a variety of popular devices.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- Chrome DevTools
+  - Chrome DevTools was used to test the website across a variety of popular devices.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- W3C Markup Validation Service
+  - W3C Markup Validation Service was used to validate the HTML code.
 
-**So….?**
+- W3C CSS Validation Service
+  - W3C CSS Validation Service was used to validate the CSS code.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+- JSHint
+  - Used to validate the JavaScript code.
 
-**Can I opt out?**
+## Testing
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+Testing information can be found in a separate file [here](TESTING.md).
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+## Deployment
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Deploying to Heroku
 
----
+The project was deployed to Heroku using the following steps:
 
-Happy coding!
+1. Create a requirements.txt file using the terminal command `pip3 freeze --local > requirements.txt`
+2. Create a Procfile for connecting to Heroku with web gunicorn my_training_blog.wsgi
+
+3. Push the requirements.txt and Procfile to GitHub.
+
+4. Create a env.py and added os.environ.get("SECRET_KEY") and os.environ.get("CLOUDINARY_URL") and os.environ.get("DATABASE_URL")
+
+4. Create a new app on Heroku, give it a name, and set the region to Europe.
+
+5. Go to settings and click on "Reveal Config Vars".
+   - Set the following config vars:
+   - CLOUDINARY_URL and copy url from cloudinary
+   - DATABASE_URL and copy the url from Elphantsql that was created from a new instance
+   - SECRET_KEY added the secret key from env.py
+   - Added PORT and set it to 8000
+   - Added DISABLE_COLLECTSTATIC and set it to 1 just for the app to deploy. I removed it when the app was done.
+
+6. In settings.py, set the following:
+   - ALLOWED_HOSTS = ['my-training-blog.herokuapp.com', 'localhost']
+   - DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+   - STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+   - STATICFIELS_DIRS = [os.path.join(BASE_DIR, 'static')]
+   - STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+   - MEDIA_URL = '/media/'
+   - DEFUALT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+   - Added in templates directory to the TEMPLATES DIRS
+   - In the INSTALLED_APPS added cloudinary and cloudinary_storage
+   - Added in the screect key from env.py SECRET_KEY = os.environ.get('SECRET_KEY')
+   - Added import os
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env
+
+1. Go to the Deploy tab and select GitHub as the deployment method. Click on Deploy branch. Wait to the build is complete. And open the app with the Open App button. Link to the live site can be found [here](https://my-training-blog.herokuapp.com/).
+
+
+## Credits
+
+### Content
+- Website content was written by the developer.
+
+### Media
+
+- The photos used in this site were obtained from [Unsplash](https://unsplash.com/).
+
+### Code
+- Stack Overflow was used to help with the code. and W3Schools. were consulted for code examples. And regular basis for inspiration.. To better understand the code and how to implement it.
+
+### Acknowledgements
+
+- My mentor Marcel for continuous helpful feedback.
+
+- My fiancee for her support and encouragement.
+
+Back to [top](#table-of-contents)
