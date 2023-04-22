@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import generic
+from django.views import generic
 from .models import Post, Comment
 
 # Create your views here.
@@ -7,6 +7,6 @@ from .models import Post, Comment
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'index.html'
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    template_name = "index.html"
     paginate_by = 6
