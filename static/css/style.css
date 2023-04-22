@@ -17,13 +17,14 @@ footer {
 }
 
 .commentandlikes {
-    align-items: center;
-    justify-content: center;
+    color: #353941;
 }
 
 .container {
     justify-content: center;
     align-items: center;
+    text-align: center;
+
 }
 
 .postdetail {
@@ -32,4 +33,37 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+
+.link {
+    color: #23BBBB;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
+}
+
+.btn-like {
+    color: #d11508;
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #d11508;
+    background: transparent;
+    border: none;
+}
+
+a.btn.btn {
+    margin: 2px;
+}
+
+.btn {
+    border: none;
 }

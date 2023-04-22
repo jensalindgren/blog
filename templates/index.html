@@ -30,8 +30,6 @@
                                 </p>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
-                            <div class="commentandlikes">
-                            <a href="{% url 'post_detail' post.slug  %}" class="btn btn-secondary">Comment</a>
 
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="" method="POST">
@@ -50,12 +48,14 @@
                                 <!-- Our total_comments variable goes before the closing strong tag -->
                                 {{ post.number_of_comments }}</strong>
                             {% endwith %}
-                            {% if post.author == user %}
-                            <a href="" class= ><i>Edit</i></a>
-                            <a href="" class= ><i>Delete</i></a>
-                            {% endif %}
+
+                            <div class="">
+                                <a href="{% url 'post_detail' post.slug  %}" class="btn btn-secondary">Comment</a>
+                                {% if post.author == user %}
+                                <a  class="btn btn--primary btn--icon mx-1" aria-label="edit post" href=""><i class="fas fa-edit"></i></a>
+                                <a  class="btn btn--primary btn--icon mx-1" aria-label="Delete post" href=""><i class="fas fa-trash-alt"></i></a>
+                                {% endif %}
                             </div>
-                            <hr />
                         </div>
                     </div>
                 </div>
@@ -64,10 +64,10 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
+
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -81,5 +81,6 @@
         </ul>
     </nav>
     {% endif %}
+
 </div>
 {%endblock%}

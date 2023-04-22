@@ -35,8 +35,6 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['letstrain.herokuapp.com', 'localhost', '127.0.0.1']
 
-SITE_ID = 1
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,7 +47,6 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -57,6 +54,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'blog',
 ]
+
+SITE_ID = 1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
 
 # Messages
 
@@ -78,18 +79,11 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_UNIQUE = True
-ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_USERNAME_MIN_LENGTH = 4
-ACCOUNT_USER_VALIDATORS = None
-
-
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
