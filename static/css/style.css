@@ -10,3 +10,26 @@ nav {
 footer {
     background-color: #353941
 }
+
+.author {
+    color: #353941;
+    text-transform: uppercase;
+}
+
+.commentandlikes {
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    justify-content: center;
+    align-items: center;
+}
+
+.postdetail {
+    max-width: 900px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

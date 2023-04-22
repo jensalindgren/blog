@@ -18,12 +18,20 @@
                                     <p class="card-text text-muted h6">{{ post.created_on}}</p>
                                 </div>
                                 {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
                             </div>
 
-                            <a href="" class="btn btn-secondary">Comment</a>
+                            <a>
+                                <p class="card-text ">
+                                    {{ post.content | safe }}
+                                </p>
+                                <p class="card-text">{{ post.excerpt }}</p>
+                            </a>
+                            <div class="commentandlikes">
+                            <a href="{% url 'post_detail' post.slug  %}" class="btn btn-secondary">Comment</a>
 
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="" method="POST">
@@ -37,19 +45,16 @@
                                 {% endif %}
                             </form>
                             {% endif %}
-
                             {% with comments.count as total_comments %}
                             <strong class="text-secondary"><i class="far fa-comments"></i>
                                 <!-- Our total_comments variable goes before the closing strong tag -->
                                 {{ post.number_of_comments }}</strong>
                             {% endwith %}
-
-                            <a href="" class="post-link">
-                                <p class="card-text ">
-                                    {{ post.content | safe }}
-                                </p>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
+                            {% if post.author == user %}
+                            <a href="" class= ><i>Edit</i></a>
+                            <a href="" class= ><i>Delete</i></a>
+                            {% endif %}
+                            </div>
                             <hr />
                         </div>
                     </div>
