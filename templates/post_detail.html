@@ -48,6 +48,10 @@
                 </p>
                 <!-- The body of the comment goes before the | -->
                 {{ comment.body | linebreaks }}
+                <a class="btn btn--primary btn--icon mx-1" href=""
+                aria-label="Delete comment"><i class="fas fa-trash-alt"></i></a>
+                <a class="btn btn--primary btn--icon mx-1" href=""
+                aria-label="edit post"><i class="fas fa-edit"></i></a>
             </div>
             <!-- Our for loop ends here -->
             {% endfor %}

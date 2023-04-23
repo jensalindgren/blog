@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+
+<br/><br/>
+<h3>Delete: {{ post.title }}</h3>
+
+
+        <form method="POST">
+            {% csrf_token %}
+            <strong>Are you sure?</strong><br/>
+            <button class="btn btn-secondary" action="{% url 'delete_post' post.slug %}"> Delete </button>
+
+            <a class="btn btn-primary" href="{% url 'home' %}" role="button">Cancel</a>
+        <form method="POST" action="{% url 'delete_comment' post.slug %}">
+            {% csrf_token %}
+
+            {% else %}
+
+            <div class="container-fluid my-4">
+                <div class="row">
+                    <div class="col-md-6 offset-md-3 text-center pt-3">
+            
+                        <h3 class="mb-3">Sorry buddy, you are not allowed to access this page.</h3>
+            
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+{% endblock %}
