@@ -42,5 +42,8 @@ urlpatterns = [
          views.SearchPostView.as_view(),
          name='search_results'),
 
+    path('about', TemplateView.as_view(template_name="about.html"),
+         name='about'),
+
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
 ]
