@@ -61,7 +61,7 @@
                             <a href="{% url 'post_detail' post.slug  %}" class="btn btn-secondary">Comment</a>
                             {% if post.author == user %}
                             <a  class="btn btn--primary btn--icon mx-1" aria-label="Edit post" href="{% url 'edit_post' post.id %}"><i class="fas fa-edit"></i></a>
-                            <a  class="btn btn--primary btn--icon mx-1" aria-label="Delete post" href="{% url 'delete_post' post.slug %}"><i class="fas fa-trash-alt"></i></a>
+                            <a  class="btn btn--primary btn--icon mx-1" aria-label="Delete post" href="{% url 'delete_post' post.id %}"><i class="fas fa-trash-alt"></i></a>
                             {% endif %}
                             </div>
                         </div>

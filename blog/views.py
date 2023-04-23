@@ -10,7 +10,7 @@ from django.contrib.postgres.search import SearchVector
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    queryset = Post.objects.all().order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
 
@@ -19,9 +19,9 @@ class PostDetailView(View):
     """ Get post to be added and render a form to add comments """
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('-created_on')
+        comments = post.comments.all().order_by('-created_on')
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -53,7 +53,7 @@ class AddPostView(View):
 
     def post(self, request):
         """ Add new post """
-        post_form = PostForm(request.POST, request.FILES)
+        post_form = PostForm(data=request.POST)
         if post_form.is_valid():
             post_form.instance.author = request.user
             post_form.instance.slug = slugify(post_form.instance.title)
@@ -78,10 +78,11 @@ class AddPostView(View):
 
 class DeletePostView(View):
     """ Get post to be deleted and render a delete form """
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, id, *args, **kwargs):
         """ Get post to be deleted and render a delete form """
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, id=id)
 
         return render(
             request,
@@ -91,10 +92,12 @@ class DeletePostView(View):
             },
         )
 
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, id, *args, **kwargs):
         """ Delete existing post """
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, id=id)
+
         post.delete()
         messages.add_message(
             request,
@@ -108,7 +111,8 @@ class DeletePostView(View):
 class EditPostView(View):
     """ Get post to be edited and render a edit form """
     def get(self, request, id, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
+
+        queryset = Post.objects.all()
         post = get_object_or_404(queryset, id=id)
 
         data = {'title': post.title, 'content': post.content}
@@ -125,13 +129,16 @@ class EditPostView(View):
 
     def post(self, request, id, *args, **kwargs):
         """ Edit existing post """
-        queryset = Post.objects.filter(status=1)
+
+        queryset = Post.objects.all()
         post = get_object_or_404(queryset, id=id)
-        edit_form = PostForm(request.POST, request.FILES, instance=post)
+
+        edit_form = PostForm(instance=post, data=request.POST,)
         if edit_form.is_valid():
-            edit_form.instance.author = request.user
-            edit_form.instance.slug = slugify(edit_form.instance.title)
-            edit_form.save()
+            post.title = edit_form.cleaned_data.get('title')
+            post.content = edit_form.cleaned_data.get('content')
+            post.slug = slugify(edit_form.cleaned_data.get('title'))
+            post.save()
             messages.add_message(
                 request,
                 messages.SUCCESS,
@@ -150,25 +157,32 @@ class EditPostView(View):
         return HttpResponseRedirect(reverse('home'))
 
 
-class PostCommentView(View):
-    """ Get post to be added and render a form to add comments """
-    def get(self, request, post_id, *args, **kwargs):
-        queryset = Comment.objects.filter(status=1)
+class CommentPostView(View):
+    """View to allow user to create a new comment"""
+
+    def get(self, request, post_id):
+        """ Get comment form and related post and render data """
+
+        queryset = Post.objects.all()
         post = get_object_or_404(queryset, id=post_id)
+
         comment_form = CommentForm()
+
         return render(
             request,
             'post_comment.html',
             {
                 'comment_form': comment_form,
                 'post': post,
-            },
+            }
         )
 
-    def post(self, request, post_id, *args, **kwargs):
-        ''' Add new comment '''
-        queryset = Post.objects.filter(status=1)
+    def post(self, request, post_id):
+        """ Create new comment using the form data and returns to home page """
+
+        queryset = Post.objects.all()
         post = get_object_or_404(queryset, id=post_id)
+
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -190,16 +204,23 @@ class PostCommentView(View):
                 'Please try again!'
             )
 
-        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+        return HttpResponseRedirect(
+            reverse(
+                'post_detail',
+                args=[post.slug]
+            )
+        )
 
 
 class CommentEditView(View):
-    
-    def get(self, request, id, *args, **kwargs):
-        
-        queryset = Post.objects.filter(status=1)
+    """ View to allow user to edit a specific comment"""
+
+    def get(self, request, id):
+        """ Get comment data and return a prefilled form """
+
+        queryset = Comment.objects.all()
         comment = get_object_or_404(queryset, id=id)
-        
+
         data = {'body': comment.body}
         edit_form = CommentForm(initial=data)
 
@@ -209,104 +230,37 @@ class CommentEditView(View):
             {
                 'comment': comment,
                 'edit_form': edit_form
-            },
+            }
         )
 
-    def post(self, request, id, *args, **kwargs):
+    def post(self, request, id):
+        """ Update existing comment using the form data"""
 
-        queryset = Post.objects.filter(status=1)
+        queryset = Comment.objects.all()
         comment = get_object_or_404(queryset, id=id)
 
-        if comment.author == request.user:
-            edit_form = CommentForm(request.POST, instance=comment)
-            if edit_form.is_valid():
-                edit_form.save()
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    'Your comment has been edited.'
-                )
-            else:
-                edit_form = CommentForm()
-                messages.add_message(
-                    request,
-                    messages.ERROR,
-                    'There was an error submitting your comment. '
-                    'Please try again!'
-                )
+        edit_form = CommentForm(instance=comment, data=request.POST)
 
+        if edit_form.is_valid():
+            comment.body = edit_form.cleaned_data.get('body')
+            comment.save()
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                'You edited your comment successfully.'
+            )
 
-class DeleteCommentView(View):
-    """ Get post to be deleted and render a delete form """
-    def get(self, request, slug, *args, **kwargs):
-        """ Get post to be deleted and render a delete form """
-        queryset = Post.objects.filter(status=1)
-        comment = get_object_or_404(queryset, slug=slug)
+        else:
+            edit_form = CommentForm()
+            messages.add_message(
+                request,
+                messages.WARNING,
+                'Your comment has not been edited.'
+            )
 
-        return render(
-            request,
-            'delete_comment.html',
-            {
-                'comment': comment,
-            },
+        return HttpResponseRedirect(
+            reverse(
+                'post_detail',
+                args=[comment.post.slug]
+            )
         )
-
-    # def post(self, request, slug, *args, **kwargs):
-    #     """ Delete existing post """
-    #     queryset = Post.objects.filter(status=1)
-    #     post = get_object_or_404(queryset, slug=slug)
-    #     post.delete()
-    #     messages.add_message(
-    #         request,
-    #         messages.SUCCESS,
-    #         'Your post has been deleted.'
-    #     )
-
-    #     return HttpResponseRedirect(reverse('home'))
-    
-    # 'commented': False,
-    # 'liked': liked,
-    # 'comment_form': CommentForm()
-    # def post(self, request, slug, *args, **kwargs):
-    #     queryset = Post.objects.filter(status=1)
-    #     post = get_object_or_404(queryset, slug=slug)
-    #     comments = post.comments.filter(approved=True).order_by(
-        # '-created_on')
-    #     liked = False
-    #     if post.likes.filter(id=self.request.user.id).exists():
-    #         liked = True
-
-    #     comment_form = CommentForm(request.POST)
-
-    #     if comment_form.is_valid():
-    #         comment_form.instance.email = request.user.email
-    #         comment_form.instance.name = request.user.username
-    #         comment = comment_form.save(commit=False)
-    #         comment.post = post
-    #         comment.save()
-    #         messages.add_message(
-    #             request,
-    #             messages.SUCCESS,
-    #             'Your comment has been added. '
-    #         )
-
-    #     else:
-    #         comment_form = CommentForm()
-    #         messages.add_message(
-    #             request,
-    #             messages.ERROR,
-    #             'There was an error submitting your Comment. '
-    #             'Please try again!'
-    #         )
-
-    #     return render(
-    #         request,
-    #         'post_detail.html',
-    #         {
-    #             'post': post,
-    #             'comments': comments,
-    #             'commented': True,
-    #             'liked': liked,
-    #             'comment_form': CommentForm()
-    #         },
-    #     )

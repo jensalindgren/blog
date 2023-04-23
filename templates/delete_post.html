@@ -12,10 +12,10 @@
         <form method="POST">
             {% csrf_token %}
             <strong>Are you sure?</strong><br/>
-            <button class="btn btn-secondary" action="{% url 'delete_post' post.slug %}"> Delete </button>
+            <button class="btn btn-secondary" action="{% url 'delete_post' post.id %}"> Delete </button>
 
             <a class="btn btn-primary" href="{% url 'home' %}" role="button">Cancel</a>
-        <form method="POST" action="{% url 'delete_post' post.slug %}">
+        <form method="POST" action="{% url 'delete_post' post.id %}">
             {% csrf_token %}
 
             {% else %}
