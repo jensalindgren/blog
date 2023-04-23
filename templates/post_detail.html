@@ -21,9 +21,9 @@
                     <!-- Show Edit and Delete buttons on post created by the user -->
                     {% if request.user == post.author %}
                     <div class="d-flex justify-content-center">
-                        <a class="btn btn--main btn--icon mx-1" href=""
+                        <a class="btn btn--main btn--icon mx-1" href="{% url 'edit_post' post.id %}"
                             aria-label="Edit post"><i class="fas fa-edit"></i></a>
-                        <a class="btn btn--secondary btn--icon mx-1" href=""
+                        <a class="btn btn--secondary btn--icon mx-1" href="{% url 'delete_post' post.id %}"
                             aria-label="Delete post"><i class="fas fa-trash-alt"></i></a>
                     </div>
                     {% endif %}
