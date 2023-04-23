@@ -149,7 +149,7 @@ class EditPost(View):
         return HttpResponseRedirect(reverse('home'))
 
 
-class AddComment(View):
+class PostComment(View):
 
     def get(self, request, post_id, *args, **kwargs):
         queryset = Post.objects.filter(status=1)

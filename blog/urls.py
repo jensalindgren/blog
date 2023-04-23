@@ -10,6 +10,10 @@ urlpatterns = [
          views.PostDetail.as_view(),
          name="post_detail"),
 
+    path('post_detail/slug:slug>/',
+         views.PostDetail.as_view(),
+         name='post_detail'),
+
     path('post_post/',
          views.AddPost.as_view(),
          name='add_post'),
@@ -24,7 +28,7 @@ urlpatterns = [
 
     path(
         'post_comment/<int:post_id>/',
-        views.AddComment.as_view(),
+        views.PostComment.as_view(),
         name='post_comment'),
 
     path('delete_comment/<int:id>/',
