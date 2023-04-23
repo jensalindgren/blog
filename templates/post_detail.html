@@ -37,9 +37,9 @@
         <div class="row">
             <div class="col-12">
     
-                <form action="{% url 'add_comment' post.id %}" method="GET" class="text-center m-0">
+                <form action="{% url 'post_comment' post.id %}" method="GET" class="text-center m-0">
                     {% csrf_token %}
-                    <a href="{% url 'add_comment' post.id %}" class="btn btn-secondary">Comment</a>
+                    <a href="{% url 'post_comment' post.id %}" class="btn btn-secondary">Comment</a>
                 </form>
     
             </div>
@@ -63,9 +63,9 @@
                 <!-- The body of the comment goes before the | -->
                 {{ comment.body | linebreaks }}
                 <a class="btn btn--primary btn--icon mx-1" href="{% url 'delete_comment' comment.id %}"
-                aria-label="Delete comment"><i class="fas fa-trash-alt"></i></a>
+                aria-label="Delete post"><i class="fas fa-trash-alt"></i></a>
                 <a class="btn btn--primary btn--icon mx-1" href="{% url 'edit_comment' comment.id  %}"
-                aria-label="edit post"><i class="fas fa-edit"></i></a>
+                aria-label="Edit post"><i class="fas fa-edit"></i></a>
             </div>
             <!-- Our for loop ends here -->
             {% endfor %}

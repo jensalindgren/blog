@@ -16,7 +16,7 @@
                 <h5 class="mb-3">{{ question.title }}</h5>
 
                 <!-- Reply form -->
-                <form method="POST" action="{% url 'add_comment' post.id %}">
+                <form method="POST" action="{% url 'post_comment' post.id %}">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
 

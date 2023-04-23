@@ -44,7 +44,7 @@ class AddPost(View):
 
         return render(
             request,
-            'add_post.html',
+            'post_post.html',
             {
                 'post_form': post_form,
             }
@@ -157,7 +157,7 @@ class AddComment(View):
         comment_form = CommentForm()
         return render(
             request,
-            'add_comment.html',
+            'post_comment.html',
             {
                 'comment_form': comment_form,
                 'post': post,
@@ -189,7 +189,7 @@ class AddComment(View):
                 'Please try again!'
             )
 
-        return HttpResponseRedirect(reverse('question_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
 
 
 class DeleteComment(View):
@@ -211,6 +211,7 @@ class DeleteComment(View):
         queryset = Post.objects.filter(status=1)
         comment = get_object_or_404(queryset, id=id)
         slug = comment.post.slug
+
         comment.delete()
         messages.add_message(
             request,
@@ -218,7 +219,8 @@ class DeleteComment(View):
             'Your comment has been deleted.'
         )
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('post_detail',
+                                            args=[slug]))
 
 
 class EditComment(View):
