@@ -153,7 +153,7 @@ class EditPostView(View):
 class PostCommentView(View):
     """ Get post to be added and render a form to add comments """
     def get(self, request, post_id, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
+        queryset = Comment.objects.filter(status=1)
         post = get_object_or_404(queryset, id=post_id)
         comment_form = CommentForm()
         return render(
@@ -193,39 +193,76 @@ class PostCommentView(View):
         return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
 
 
-class CommentDeleteView(View):
-    """ View to allow user to delete a specific reply """
+class CommentEditView(View):
+    
+    def get(self, request, id, *args, **kwargs):
+        
+        queryset = Post.objects.filter(status=1)
+        comment = get_object_or_404(queryset, id=id)
+        
+        data = {'body': comment.body}
+        edit_form = CommentForm(initial=data)
 
-    def get(self, request, id):
-        """ Get reply to be deleted and render a delete form """
+        return render(
+            request,
+            'edit_comment.html',
+            {
+                'comment': comment,
+                'edit_form': edit_form
+            },
+        )
+
+    def post(self, request, id, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
         comment = get_object_or_404(queryset, id=id)
+
+        if comment.author == request.user:
+            edit_form = CommentForm(request.POST, instance=comment)
+            if edit_form.is_valid():
+                edit_form.save()
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    'Your comment has been edited.'
+                )
+            else:
+                edit_form = CommentForm()
+                messages.add_message(
+                    request,
+                    messages.ERROR,
+                    'There was an error submitting your comment. '
+                    'Please try again!'
+                )
+
+class DeleteCommentView(View):
+    """ Get post to be deleted and render a delete form """
+    def get(self, request, slug, *args, **kwargs):
+        """ Get post to be deleted and render a delete form """
+        queryset = Post.objects.filter(status=1)
+        comment = get_object_or_404(queryset, slug=slug)
 
         return render(
             request,
             'delete_comment.html',
             {
                 'comment': comment,
-            }
+            },
         )
 
-    def post(self, request, id):
-        """ Delete existing reply """
+    # def post(self, request, slug, *args, **kwargs):
+    #     """ Delete existing post """
+    #     queryset = Post.objects.filter(status=1)
+    #     post = get_object_or_404(queryset, slug=slug)
+    #     post.delete()
+    #     messages.add_message(
+    #         request,
+    #         messages.SUCCESS,
+    #         'Your post has been deleted.'
+    #     )
 
-        queryset = Post.objects.filter(status=1)
-        comment = get_object_or_404(queryset, id=id)
-        slug = comment.post.slug
-
-        comment.delete()
-        messages.add_message(
-            request,
-            messages.SUCCESS,
-            'Your reply has been deleted.'
-        )
-
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
+    #     return HttpResponseRedirect(reverse('home'))
+    
     # 'commented': False,
     # 'liked': liked,
     # 'comment_form': CommentForm()

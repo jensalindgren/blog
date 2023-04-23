@@ -65,17 +65,47 @@
                 </p>
                 <!-- The body of the comment goes before the | -->
                 {{ comment.body | linebreaks }}
-                <a class="btn btn--primary btn--icon mx-1" href=" {% url 'delete_comment' comment.id %}}"
+                <a class="btn btn--primary btn--icon mx-1" href=" {% url 'delete_comment' post.slug %}}"
                 aria-label="Delete post"><i class="fas fa-trash-alt"></i></a>
 
-                <a class="btn btn--primary btn--icon mx-1" href=""
+                <a class="btn btn--primary btn--icon mx-1" href="{% url 'edit_comment' comment.id %}"
                 aria-label="Edit post"><i class="fas fa-edit"></i></a>
 
+                <a class="btn btn-primary" href="" role="button">Link</a>
             </div>
             <!-- Our for loop ends here -->
             {% endfor %}
         </div>
-    
+        <a class="btn btn-primary" href="{% url 'delete_comment' post.slug %}" role="button">Link</a>
 </div>
+
+
+<!-- Display reply list-->
+<div class="container-fluid">
+
+    {% for comment in comments %}
+    <div class="row mb-3">
+
+        <!-- Display reply -->
+        <div class="col-10 col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="card-text">{{ comment.body | safe }}</p>
+                    <p class="text-muted mb-0">by {{ comment.author }}</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <small class="text-muted">Last updated on {{ comment.last_updated }}</small>
+                    {% if request.user == comment.author %}
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn--main btn--icon mx-1" href="{% url 'edit_comment' comment.id %}"
+                            aria-label="Edit question"><i class="fas fa-edit"></i></a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
 
 {% endblock content %}

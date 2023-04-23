@@ -49,7 +49,7 @@ class Comment(models.Model):
 
     class Meta:
         verbose_name_plural = 'comments'
-        ordering = ["created_on"]
+        ordering = ["-created_on"]
 
     def __str__(self):
         return f"Comment #{self.id} by {self.post}"

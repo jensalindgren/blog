@@ -33,7 +33,12 @@ urlpatterns = [
          TemplateView.as_view(template_name='404.html'),
          name='404'),
 
-    path('delete_comment/<int:id>/',
-         views.CommentDeleteView.as_view(),
+    path('delete_comment/<slug:slug>/',
+         views.DeleteCommentView.as_view(),
          name='delete_comment'),
+
+    path('edit_comment/<int:id>/',
+         views.CommentEditView.as_view(),
+         name='edit_comment'
+         )
 ]
