@@ -5,6 +5,7 @@ from .models import Post
 from .forms import CommentForm, PostForm
 from django.contrib import messages
 from django.utils.text import slugify
+from django.contrib.postgres.search import SearchVector
 
 
 class PostList(generic.ListView):
@@ -14,7 +15,7 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-class PostDetail(View):
+class PostDetailView(View):
     """ Get post to be added and render a form to add comments """
 
     def get(self, request, slug, *args, **kwargs):
@@ -35,7 +36,7 @@ class PostDetail(View):
         )
 
 
-class AddPost(View):
+class AddPostView(View):
     """ Get post to be added and render a add form """
 
     def get(self, request):
@@ -75,8 +76,8 @@ class AddPost(View):
         return HttpResponseRedirect(reverse('home'))
 
 
-class DeletePost(View):
-
+class DeletePostView(View):
+    """ Get post to be deleted and render a delete form """
     def get(self, request, slug, *args, **kwargs):
         """ Get post to be deleted and render a delete form """
         queryset = Post.objects.filter(status=1)
@@ -104,7 +105,7 @@ class DeletePost(View):
         return HttpResponseRedirect(reverse('home'))
 
 
-class EditPost(View):
+class EditPostView(View):
     """ Get post to be edited and render a edit form """
     def get(self, request, id, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -149,8 +150,8 @@ class EditPost(View):
         return HttpResponseRedirect(reverse('home'))
 
 
-class PostComment(View):
-
+class PostCommentView(View):
+    """ Get post to be added and render a form to add comments """
     def get(self, request, post_id, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, id=post_id)
@@ -192,8 +193,8 @@ class PostComment(View):
         return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
 
 
-class DeleteComment(View):
-
+class DeleteCommentView(View):
+    """ Get post to be deleted and render a delete form """
     def get(self, request, id, *args, **kwargs):
         """ Let user delete comment """
         queryset = Post.objects.filter(status=1)
@@ -201,29 +202,11 @@ class DeleteComment(View):
         return render(
             request,
             'delete_comment.html',
-            {
-                'comment': comment,
-            }
+
         )
 
-    def post(self, request, id, *args, **kwargs):
-        """ Delete existing comment """
-        queryset = Post.objects.filter(status=1)
-        comment = get_object_or_404(queryset, id=id)
-        slug = comment.post.slug
 
-        comment.delete()
-        messages.add_message(
-            request,
-            messages.SUCCESS,
-            'Your comment has been deleted.'
-        )
-
-        return HttpResponseRedirect(reverse('post_detail',
-                                            args=[slug]))
-
-
-class EditComment(View):
+class EditCommentView(View):
     """ Get post to be edited and render a edit form """
     def get(self, request, id, *args, **kwargs):
         queryset = Post.objects.filter(status=1)

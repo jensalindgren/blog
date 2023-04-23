@@ -1,41 +1,44 @@
 from . import views
 from django.urls import path
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path("",
          views.PostList.as_view(),
          name="home"),
 
-    path("post/<slug:slug>/",
-         views.PostDetail.as_view(),
+    path("post_detail/<slug:slug>/",
+         views.PostDetailView.as_view(),
          name="post_detail"),
 
-    path('post_detail/slug:slug>/',
-         views.PostDetail.as_view(),
-         name='post_detail'),
-
     path('post_post/',
-         views.AddPost.as_view(),
+         views.AddPostView.as_view(),
          name='add_post'),
 
-    path('edit_post/<int:id>/',
-         views.EditPost.as_view(),
-         name='edit_post'),
-
     path('delete_post/<slug:slug>/',
-         views.DeletePost.as_view(),
+         views.DeletePostView.as_view(),
          name='delete_post'),
+
+
+    path('edit_post/<int:id>/',
+         views.EditPostView.as_view(),
+         name='edit_post'),
 
     path(
         'post_comment/<int:post_id>/',
-        views.PostComment.as_view(),
+        views.PostCommentView.as_view(),
         name='post_comment'),
 
-    path('delete_comment/<int:id>/',
-         views.DeleteComment.as_view(),
+    path('delete_comments/<int:id>/',
+         views.DeleteCommentView.as_view(),
          name='delete_comment'),
 
     path('edit_comment/<int:id>/',
-         views.EditComment.as_view(),
+         views.EditCommentView.as_view(),
          name='edit_comment'),
+    
+    path('404',
+         TemplateView.as_view(template_name='404.html'),
+         name='404'
+         )
 ]

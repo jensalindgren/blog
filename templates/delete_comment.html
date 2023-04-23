@@ -8,29 +8,7 @@
 
 
 
-<div class="container-fluid my-4">
-    <div class="row">
-        <div class="col-md-6 offset-md-3 pt-3">
-            <div class="card card-body pb-0">
 
-                <h3 class="mb-3">Delete Reply</h3>
-
-
-                <form method="POST" action="{% url 'delete_comment' comment.id %}">
-                    {% csrf_token %}
-
-                    <p>Are you sure you want to delete your comment?</p>
-
-                    <div class="text-center my-4">
-                        <button type="submit" class="btn btn--main mx-1">Yes</button>
-                        <a class="btn btn--secondary mx-1" href="{% url 'post_detail' comment.post.slug %}">No</a>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
             {% else %}
 
             <div class="container-fluid my-4">

@@ -36,7 +36,7 @@
     <div class="container-fluid mb-4">
         <div class="row">
             <div class="col-12">
-    
+                <br>
                 <form action="{% url 'post_comment' post.id %}" method="GET" class="text-center m-0">
                     {% csrf_token %}
                     <a href="{% url 'post_comment' post.id %}" class="btn btn-secondary">Comment</a>
@@ -58,7 +58,10 @@
                     {{ comment.name }}
                     <span class=" text-muted font-weight-normal">
                         <!-- The comment's created date goes here -->
-                        {{ comment.created_on }}
+                        {{ comment.created_on }} 
+
+
+                        
                 </p>
                 <!-- The body of the comment goes before the | -->
                 {{ comment.body | linebreaks }}
@@ -66,6 +69,7 @@
                 aria-label="Delete post"><i class="fas fa-trash-alt"></i></a>
                 <a class="btn btn--primary btn--icon mx-1" href="{% url 'edit_comment' comment.id  %}"
                 aria-label="Edit post"><i class="fas fa-edit"></i></a>
+
             </div>
             <!-- Our for loop ends here -->
             {% endfor %}
