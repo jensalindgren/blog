@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'crispy_forms',
+    'crispy_bootstrap4',
     'django_summernote',
     'blog',
 ]
@@ -68,9 +69,10 @@ MESSAGE_TAGS = {
     messages.ERROR: 'alert-danger',
 }
 
-# Crispy forms
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Allauth settings
 
