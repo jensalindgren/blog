@@ -21,4 +21,17 @@ urlpatterns = [
     path('delete_post/<slug:slug>/',
          views.DeletePost.as_view(),
          name='delete_post'),
+
+    path('delete_comment/<int:id>/',
+         views.DeleteComment.as_view(),
+         name='delete_comment'),
+
+    path('edit_comment/<int:id>/',
+         views.EditComment.as_view(),
+         name='edit_comment'),
+
+    path(
+        'add_comment/<int:post_id>/',
+        views.AddComment.as_view(),
+        name='add_comment'),
 ]

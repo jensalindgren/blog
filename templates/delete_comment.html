@@ -2,22 +2,35 @@
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
+{% if request.user == comment.author %}
 
 
 
-<br/><br/>
-<h3>Delete: {{ post.title }}</h3>
 
 
-        <form method="POST">
-            {% csrf_token %}
-            <strong>Are you sure?</strong><br/>
-            <button class="btn btn-secondary" action="{% url 'delete_post' post.slug %}"> Delete </button>
+<div class="container-fluid my-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 pt-3">
+            <div class="card card-body pb-0">
 
-            <a class="btn btn-primary" href="{% url 'home' %}" role="button">Cancel</a>
-        <form method="POST" action="{% url 'delete_comment' post.slug %}">
-            {% csrf_token %}
+                <h3 class="mb-3">Delete Reply</h3>
 
+
+                <form method="POST" action="{% url 'delete_comment' comment.id %}">
+                    {% csrf_token %}
+
+                    <p>Are you sure you want to delete your comment?</p>
+
+                    <div class="text-center my-4">
+                        <button type="submit" class="btn btn--main mx-1">Yes</button>
+                        <a class="btn btn--secondary mx-1" href="{% url 'post_detail' comment.post.slug %}">No</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
             {% else %}
 
             <div class="container-fluid my-4">
@@ -25,12 +38,12 @@
                     <div class="col-md-6 offset-md-3 text-center pt-3">
             
                         <h3 class="mb-3">Sorry buddy, you are not allowed to access this page.</h3>
-            
+                        
                     </div>
                 </div>
             </div>
             
 
-
+            {% endif %}
 
 {% endblock %}
