@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from django.contrib import messages
 from django.utils.text import slugify
@@ -234,6 +234,7 @@ class CommentEditView(View):
                     'There was an error submitting your comment. '
                     'Please try again!'
                 )
+
 
 class DeleteCommentView(View):
     """ Get post to be deleted and render a delete form """
