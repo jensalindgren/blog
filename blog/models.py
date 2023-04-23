@@ -48,10 +48,11 @@ class Comment(models.Model):
                                    blank=True)
 
     class Meta:
+        verbose_name_plural = 'comments'
         ordering = ["created_on"]
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return f"Comment #{self.id} by {self.post}"
 
     def number_of_likes(self):
         return self.likes.count()
