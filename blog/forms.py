@@ -21,13 +21,3 @@ class PostForm(forms.ModelForm):
         widgets = {
             'content': SummernoteWidget(),
         }
-
-
-class EditForm(forms.ModelForm):
-    """ Form for reply submission """
-    class Meta:
-        model = Post
-        fields = ['title', 'content', ]
-        widgets = {
-            'content': SummernoteWidget(),
-        }
