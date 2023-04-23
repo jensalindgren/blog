@@ -4,17 +4,55 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container-fluid my-4">
-    <div class="row">
+
+
+<!-- Render when user is authenticated -->
+    {% if user.is_authenticated %}
+        <div class="container-fluid mt-4">
+            <div class="row">
+                <div class="col-12">
+                    <a href="{% url 'post_comment' post.id %}" class="btn btn-secondary btn-lg">Comment</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</br>
 
 
         <!-- Post -->
-        <div class="col-10 col-md-6">
+        <div class="card h-100">
             <div class="card h-100">
                 <div class="card-body">
                     <h3 class="card-title">{{ post.title }}</h3>
                     <p class="text-muted">by {{ post.author }}</p>
                     <p class="card-text">{{ post.content | safe }}</p>
+                        <div class="row">
+                            <strong>
+                                {% if user.is_authenticated %}
+                                <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    {% if liked %}
+                                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                    {% else %}
+                                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                    {% endif %}
+                                </form>
+                                {% else %}
+                                <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                {% endif %}
+                            <!-- The number of likes goes before the closing strong tag -->
+                            <span class="text-secondary">{{ post.number_of_likes }} </span>
+                            {{ total_comments }}
+                            </strong>
+                        </div>
+
+                        {% with comments.count as total_comments %}
+                        <strong class="text-secondary"><i class="far fa-comments"></i>
+                            <!-- Our total_comments variable goes before the closing strong tag -->
+                            {{ total_comments }}</strong>
+                        {% endwith %}
+
+
                 </div>
                 <div class="card-footer d-flex justify-content-between">
                     <small class="text-muted">Last updated on {{ post.last_updated }}</small>
@@ -30,36 +68,15 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Render when user is authenticated -->
-{% if user.is_authenticated %}
-<div class="container-fluid mb-4">
-    <div class="row">
-        <div class="col-12">
-
-            <form action="{% url 'post_comment' post.id %}" method="GET" class="text-center m-0">
-                {% csrf_token %}
-                <button class="btn btn--main no-border" type="submit">
-                    Comment <i class="fas fa-plus p-1"></i></button>
-            </form>
-
-        </div>
-    </div>
-</div>
-{% endif %}
+    </br>
 
 <!-- Display comment list-->
 <div class="container-fluid">
-
     {% for comment in comments %}
     <div class="row mb-3">
-
-
-
         <!-- Display comment -->
-        <div class="col-10 col-md-6">
+        <div class="">
             <div class="card h-100">
                 <div class="card-body">
                     <p class="card-text">{{ comment.body | safe }}</p>

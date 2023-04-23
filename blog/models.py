@@ -47,8 +47,6 @@ class Comment(models.Model):
     name = models.CharField(max_length=80)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, related_name='comment_likes',
-                                   blank=True)
 
     class Meta:
         verbose_name_plural = 'comments'
@@ -57,5 +55,4 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment #{self.id} by {self.post}"
 
-    def number_of_likes(self):
-        return self.likes.count()
+

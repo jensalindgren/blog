@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid mt-4">
+
+    {% if posts %}
+    <div class="row">
+        <div class="col-10 offset-2 col-md-6 offset-md-3">
+            <h3>Search results for "{{ searched }}"</h3>
+        </div>
+    </div>
+
+    <!-- Display search results -->
+    {% for post in posts %}
+
+
+        <!-- Display post information-->
+
+            <div class="card h-100">
+                <div class="card-body">
+                    <a href="{% url 'post_detail' post.slug %}" class="link-dark text-decoration-none">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                    </a>
+                    <p class="text-muted mb-0">by {{ post.author }}</p>
+                    {{ post.content | safe }}
+                </div>
+                <a href="{% url 'post_detail' post.slug  %}" class="btn btn-secondary">Comment</a>
+                   
+                <div class="row">
+                    <strong>
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                            {% else %}
+                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                            {% endif %}
+                        </form>
+                        {% else %}
+                        <span class="text-secondary"><i class="far fa-heart"></i></span>
+                        {% endif %}
+                    <!-- The number of likes goes before the closing strong tag -->
+                    <span class="">{{ post.number_of_likes }} </span>
+                    </strong>
+                </div>
+                
+            </div>
+            </div>
+
+
+    {% endfor %}
+
+    {% else %}
+    <div class="row">
+        <div class="col-10 offset-2 col-md-6 offset-md-3">
+            <h3>We couldn't find any results for "{{ searched }}"</h3>
+        </div>
+    </div>
+    {% endif %}
+    
+</div>
+
+<!-- Site Pagination -->
+{% if is_paginated %}
+<nav>
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+        </li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+{% endblock %}

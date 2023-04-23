@@ -1,3 +1,10 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&family=Quicksand:wght@700&family=Roboto:wght@500&display=swap');
 
@@ -8,6 +15,9 @@ body {
     font-family: 'Nunito', sans-serif;
     background-color: #FFFFFD;
     color: #253a47;
+    justify-content: center;
+    align-items: center;
+    max-width: 1440px;
 }
 
 h3,
@@ -25,7 +35,7 @@ h5 {
 
 /* Colors */
 
-.bg-color-ligth {
+.bg-color-light {
     background-color: #E9EDE9;
 }
 
@@ -121,7 +131,6 @@ h5 {
     background-color: #3F778D;
 }
 
-
 /* Forms */
 
 input[type=text],
@@ -149,6 +158,13 @@ form>div {
     margin-bottom: 1rem;
 }
 
+.img>p {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+}
 
 /* Header */
 
@@ -193,7 +209,8 @@ footer a {
 /* Stick footer to the bottom */
 
 .content-wrapper {
-    min-height: calc(100vh - 225px);
+    min-height: calc(100vh);
+    min-width: 100%;
 }
 
 
@@ -204,4 +221,14 @@ footer a {
 
 .card-footer {
     background-color: #E9EDE9;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #555;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }

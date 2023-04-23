@@ -32,6 +32,8 @@ class PostDetailView(View):
             {
                 'post': post,
                 'comments': comments,
+                'commented': False,
+                'liked': liked,
             },
         )
 
@@ -167,6 +169,9 @@ class CommentPostView(View):
         post = get_object_or_404(queryset, id=post_id)
 
         comment_form = CommentForm()
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
 
         return render(
             request,
@@ -174,6 +179,8 @@ class CommentPostView(View):
             {
                 'comment_form': comment_form,
                 'post': post,
+                'commented': True,
+                'liked': liked
             }
         )
 
@@ -299,3 +306,34 @@ class CommentDeleteView(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
+class PostLike(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class SearchPostView(View):
+    """ List view for posts matching a search """
+
+    def post(self, request):
+        """ Search posts matching the search """
+
+        searched = request.POST['searched']
+        posts = Post.objects.annotate(
+            search=SearchVector('title', 'content')).filter(search=searched)
+
+        return render(
+            request,
+            'search_results.html',
+            {
+                'searched': searched,
+                'posts': posts,
+            }
+        )
