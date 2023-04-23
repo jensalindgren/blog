@@ -264,3 +264,38 @@ class CommentEditView(View):
                 args=[comment.post.slug]
             )
         )
+
+
+class CommentDeleteView(View):
+    """ View to allow user to delete a specific comment """
+
+    def get(self, request, id):
+        """ Get comment to be deleted and render a delete form """
+
+        queryset = Comment.objects.all()
+        comment = get_object_or_404(queryset, id=id)
+
+        return render(
+            request,
+            'delete_comment.html',
+            {
+                'comment': comment,
+            }
+        )
+
+    def post(self, request, id):
+        """ Delete existing comment """
+
+        queryset = Comment.objects.all()
+        comment = get_object_or_404(queryset, id=id)
+        slug = comment.post.slug
+
+        comment.delete()
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            'Your comment has been deleted.'
+        )
+
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+

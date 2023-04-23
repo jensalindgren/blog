@@ -71,7 +71,8 @@
                     <div class="d-flex justify-content-center">
                         <a class="btn btn--main btn--icon mx-1" href="{% url 'edit_comment' comment.id %}"
                             aria-label="Edit question"><i class="fas fa-edit"></i></a>
-
+                        <a class="btn btn--secondary btn--icon mx-1" href="{% url 'delete_comment' comment.id %}" aria-label="Delete post"><i
+                            class="fas fa-trash-alt"></i></a>
                     </div>
                     {% endif %}
                 </div>
