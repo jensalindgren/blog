@@ -130,9 +130,28 @@ Post Model
 
 Balsamiq has been used to showcase the appearance of the site and display structure.
 
+Here is my wireframes for the site.
+
+I picture the site to be a dark theme with a light theme for the text. This is to make the site more appealing to the eye and to make the text more readable. Simple and easy to use. And easy to navigate.
+
+Here is the landing page.
+![Alt text](/assets/wireframes/wireframe_1.png?raw=true "Wireframe 1")
+And the post detail page.
+![Alt text](/assets/wireframes/wireframe_2.png?raw=true "Wireframe 2")
+And the add post page.
+![Alt text](/assets/wireframes/wireframe_3.png?raw=true "Wireframe 3")
+
+Simple adn effective wireframes. And I hade a good idea of what I wanted the site to look like.
+
 ## Color Scheme
 
-The color scheme has been chosen to be a dark theme with a light theme for the text. This is to make the site more appealing to the eye and to make the text more readable.
+The color scheme has been chosen to be a dark theme for header and footer a light theme for the body. This is to make the site more appealing to the eye and to make the text more readable. So you can focus on the content.
+
+For the header and footer I used a darker color #212529;
+For the buttons I used a lighter color #6c757d;
+And white for the background color #fff; So the pictures/content will stand out. And be in focus.
+All the social links and links on the header is #0d6efd; For a more pop out effect.
+
 
 ## Features
 

@@ -4,15 +4,11 @@
     box-sizing: border-box;
 }
 
-
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&family=Quicksand:wght@700&family=Roboto:wght@500&display=swap');
 
 
-/* Fonts */
-
 body {
-    font-family: 'Lato', sans-serif;
     background-color: #FFFFFD;
     color: #253a47;
     justify-content: center;
@@ -32,8 +28,6 @@ h5 {
     font-family: 'Quicksand', sans-serif;
 }
 
-
-/* Buttons */
 
 .btn--main {
     color: #E9EDE9;
@@ -79,8 +73,6 @@ h5 {
     margin: 0px 4px;
 }
 
-/* Forms */
-
 input[type=text],
 input[type=password],
 input[type=email],
@@ -114,14 +106,8 @@ form>div {
     width: 200px;
 }
 
-/* Header */
-
 .navbar {
     font-size: 1.25em;
-}
-
-.navitem {
-    color: #E9EDE9;
 }
 
 .form-control {
@@ -130,7 +116,6 @@ form>div {
     border: 1px solid #3F778D;
 }
 
-/* Footer */
 
 footer {
     background-color: #253A47;
@@ -141,15 +126,12 @@ footer a {
     font-size: 1.5rem;
 }
 
-/* Stick footer to the bottom */
 
 .content-wrapper {
     min-height: calc(100vh);
-    min-width: 100%;
 }
 
 
-/* Cards */
 .card {
     background-color: #FFFFFD;
 }
