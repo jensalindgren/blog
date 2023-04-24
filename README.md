@@ -104,6 +104,28 @@ The website has been organized in a Hierarchical Tree Structure to ensure the si
 
 The type of database being used for the is relational database being managed using PostgreSQL.
 
+![Alt text](/assets/wireframes/database_model.png?raw=true "Database Model")
+
+I used  link https://drawsql.app/ to create the database model.
+
+Comment Model
+
+- Comment A foreign key to the post model. So each comment is linked to a post.
+- Author A foreign key to the user model. So each comment is linked to a user. With a foreign key to the user model.
+- Body The content of the comment.
+- Created_on The date the comment was created.
+- Last update_on The date the comment was updated.
+- And a count on the comment model. To count the number of comments on a post.
+Post Model
+
+- Title The title of the post. Provided by the author.
+- Author store the author of the post. A foreign key to the user model.
+- Content The content of the post. Provided by the author.
+- Slug A slug is to create a unique URL for each post.
+- Created_on The date the post was created.
+- Last update_on The date the post was updated.
+- Liked A many to many field to the user model. So each post can be liked by a user.
+
 ## Wireframes
 
 Balsamiq has been used to showcase the appearance of the site and display structure.
