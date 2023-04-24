@@ -2,7 +2,7 @@
 
 ## General Information
 
-This is a blog for training purposes. You can register accounts and post information and traning tips for others to see. You can also comment on other posts. Like them and unlike them. You can also edit and delete your own posts. You can also upload training pictures. Link to the live site can be found [here](https://my-training-blog.herokuapp.com/).
+This is a blog for training purposes. You can register accounts and post information and traning tips for others to see. You can also comment on other posts. Like them and unlike them. You can also edit and delete your own posts. You can also upload training pictures. Link to the live site can be found [here](https://letstrain.herokuapp.com/).
 
 ## Table of Contents
 
@@ -10,6 +10,7 @@ This is a blog for training purposes. You can register accounts and post informa
   - [General Information](#general-information)
   - [Table of Contents](#table-of-contents)
   - [Project Goals](#project-goals)
+  - [User Goals](#user-goals)
   - [User Stories](#user-stories)
     - [Start](#start)
   - [Structure](#structure)
@@ -36,7 +37,18 @@ This is a blog for training purposes. You can register accounts and post informa
 
 ## Project Goals
 
-Is to create a blog where people can post training tips and information. Also to create a community where people can share their training experiences and help each other out.
+- Is to create a blog where people can post training tips and information. Also to create a community where people can share their training experiences and help each other out.
+- Structure the site in a way that is easy to navigate and use.
+- Site user can register an account and login to the site. And be able to post information and training tips for others to see.
+- Site user can comment on other posts. Like them and unlike them.
+- Responsive on all device sizes.
+
+## User Goals
+
+- As site Admin I want to manage the site and be able to delete posts and comments.
+- As a site user I want to be able to register an account and login to the site.
+- As a site user I want to be able to post information and training tips for others to see.
+- As a site user I want to be able to comment on other posts. Like them and unlike them.
 
 ## User Stories
 
@@ -52,6 +64,30 @@ I was able to get the first three user story's done.
 ## Structure
 
 The website has been organized in a Hierarchical Tree Structure to ensure the site user navigates through the site effortlessly and intuitively.
+
+- Home
+  - The home page is the first page the user will see when they visit the site. It contains a navigation bar at the top of the page. The navigation bar contains a link to the home page, login page, register page, and logout. The home page also contains a search bar and a button to create a post. The home page also contains a list of posts. Each post contains a title, author, date, and a like button. The home page also contains a footer with links to social media. You can also edit and delete your own posts.
+  
+- Post Detail
+  - Post Detail is a page that contains the post title, author, date, and the post content. The post detail page also contains a like button and a comment section. The comment section contains a form to add a comment and a list of comments. Each comment contains the author, date, and comment content. You can also edit and delete your own comments.
+
+- Create Post
+  - Create Post is a page that contains a form to create a post. The form contains a title field, content field, and an image field. The image field is optional. The create post page also contains a cancel button. The cancel button will take you back to the home page.
+
+- Edit Post
+  - Edit post is a page that contains a form to edit a post. The form contains a title field, content field, and an image field. The image field is optional. The edit post page also contains a cancel button. The cancel button will take you back to the home page.
+
+- Delete Post
+  - Delete post is a page that contains a form to delete a post. Gives you a options if you want delete your own post. The delete post page also contains a cancel button. The cancel button will take you back to the home page.
+
+- Edit Comment
+  - Edit comment is a page that contains a form to edit a comment. The form contains a content field. So you can update your comment.
+  
+- Delete Comment
+  - Delete comment works as the delete post page. It contains a form to delete a comment. Gives you a options if you want delete your own comment. The delete comment page also contains a cancel button. The cancel button will take you back to the home page.
+
+- Login
+  - Login is a page that contains a form to login to the site. The form contains a username field and a password field. The login page also contains a cancel button.
 
 ## Database Model
 
