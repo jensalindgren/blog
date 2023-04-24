@@ -179,7 +179,7 @@ I used light house to check the accessibility of the website. I got okey results
 
 <details>
 <summary>3.</summary>
-<img src="assest/../assets/wireframes/light_2.png">
+<img src="assest/../assets/wireframes/light_3.png">
 </details>
 
 <details>
@@ -212,6 +212,21 @@ I used light house to check the accessibility of the website. I got okey results
 Chrome DevTools was used to test the website on different devices and browsers.
 And http://ami.responsivedesign.is/# was for responsiveness of the site pages across different devices.
 
+
+## Browser compatibility
+
+Chrome no problem. No issues nor errors.
+Firefox no problem. No issues nor errors.
+Edge no problem. No issues nor errors.
+Safari no problem. No issues nor errors.
+
+## Operating system compatibility
+
+Windows 10 no problem. No issues nor errors.
+MacOS no problem. No issues nor errors.
+Linux no problem. No issues nor errors.
+Windows 11 no problem. No issues nor errors.
+
 ## Manual testing
 
 ### Home page
@@ -228,7 +243,7 @@ And http://ami.responsivedesign.is/# was for responsiveness of the site pages ac
 * Post author is displayed.
 * Likes are displayed.
 * All the edit and delete buttons are displayed for the right user.
-* * All right message is displayed for the right user.
+* All right message is displayed for the right user.
 
 ### Post detail page
 

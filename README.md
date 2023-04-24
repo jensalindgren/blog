@@ -37,8 +37,11 @@ This is a blog for training purposes. You can register accounts and post informa
     - [Databases](#databases)
     - [Tools Used](#tools-used)
   - [Testing](#testing)
+    - [Final Result](#final-result)
   - [Deployment](#deployment)
     - [Deploying to Heroku](#deploying-to-heroku)
+  - [Buggs](#buggs)
+  - [Future Features](#future-features)
   - [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
@@ -332,6 +335,84 @@ And a footer with links to social media.
 
 Testing information can be found in a separate file [here](TESTING.md).
 
+### Final Result
+
+The final result can be viewed [here](https://my-training-blog.herokuapp.com/).
+
+See screenshots of the website below:
+
+<details>
+<summary>1.</summary>
+<img src="assest/../assets/wireframes/done_1.png">
+</details>
+
+<details>
+<summary>2.</summary>
+<img src="assest/../assets/wireframes/done_2.png">
+</details>
+
+<details>
+<summary>3.</summary>
+<img src="assest/../assets/wireframes/done_3.png">
+</details>
+
+<details>
+<summary>4.</summary>
+<img src="assest/../assets/wireframes/done_4.png">
+</details>
+
+<details>
+<summary>5.</summary>
+<img src="assest/../assets/wireframes/done_5.png">
+</details>
+
+<details>
+<summary>6.</summary>
+<img src="assest/../assets/wireframes/done_6.png">
+</details>
+
+<details>
+<summary>7.</summary>
+<img src="assest/../assets/wireframes/done_7.png">
+</details>
+
+For mobile devices:
+
+<details>
+<summary>1.</summary>
+<img src="assest/../assets/wireframes/mobile_1.png">
+</details>
+
+<details>
+<summary>2.</summary>
+<img src="assest/../assets/wireframes/mobile_2.png">
+</details>
+
+<details>
+<summary>3.</summary>
+<img src="assest/../assets/wireframes/mobile_3.png">
+</details>
+
+<details>
+<summary>4.</summary>
+<img src="assest/../assets/wireframes/mobile_4.png">
+</details>
+
+<details>
+<summary>5.</summary>
+<img src="assest/../assets/wireframes/mobile_5.png">
+</details>
+
+<details>
+<summary>6.</summary>
+<img src="assest/../assets/wireframes/mobile_6.png">
+</details>
+
+<details>
+<summary>7.</summary>
+<img src="assest/../assets/wireframes/mobile_7.png">
+</details>
+
 ## Deployment
 
 ### Deploying to Heroku
@@ -371,8 +452,22 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
-1. Go to the Deploy tab and select GitHub as the deployment method. Click on Deploy branch. Wait to the build is complete. And open the app with the Open App button. Link to the live site can be found [here](https://my-training-blog.herokuapp.com/).
+7. Go to the Deploy tab and select GitHub as the deployment method. Click on Deploy branch. Wait to the build is complete. And open the app with the Open App button. Link to the live site can be found [here](https://letstrain.herokuapp.com/).
 
+## Buggs
+
+- A known issue with Summernote field validation is present in the project. An invalid form will be posted if the field is empty. A message will however be displayed, informing the user that there has been a problem with the submission.
+
+## Future Features
+
+- Add a email validation to the sign up form.
+- Add more content to the blog.
+- Add more features to the blog. As liking comments displaying number of views.
+- Add a recommendation system to the blog. For the most liked/commented posts.
+- Add profile picture to the user profile page.
+- Better forms.
+- Editing and deleting your own profile.
+- Add more sidebars with more information. And popular posts.
 
 ## Credits
 
