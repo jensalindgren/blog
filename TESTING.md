@@ -128,5 +128,29 @@
 
 The [W3C Markup Validator](https://validator.w3.org/) was used to validate the HTML code.
  
+Home page!
 
 
+<details>
+<summary>Only showed warnings for the picture I stored on cloudinary. No other errors were found.</summary>
+<img src="assest/../assets/wireframes/html_1.png">
+</details>
+
+I think the problem with picture is comming Summernote editor.
+
+Post detail page!
+
+<details>
+<summary>Found some </ br > was causing problems I fixed it.</summary>
+<img src="assest/../assets/wireframes/html_2.png">
+</details>
+
+
+### CSS
+
+W3C CSS Validator was used to validate the CSS code. https://jigsaw.w3.org/css-validator/
+
+<details>
+<summary>No problem from the css.</summary>
+<img src="assest/../assets/wireframes/css.png">
+</details>
