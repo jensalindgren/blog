@@ -70,9 +70,8 @@ GitHub projects was used as my project management tool to track user stories.
 ### Start
 I will implement more user stories as I go along. I will also add more features to the site as I go along.
 ![Alt text](/assets/wireframes/user_story_1.png?raw=true "User Story 1")
-I was able to get the first three user story's done.
+I was able to get the first three user story's done. Then the rest followed after that.
 ![Alt text](/assets/wireframes/user_story_2.png?raw=true "User Story 2")
-
 
 ## Structure
 
