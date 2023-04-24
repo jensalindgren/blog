@@ -87,7 +87,18 @@ The website has been organized in a Hierarchical Tree Structure to ensure the si
   - Delete comment works as the delete post page. It contains a form to delete a comment. Gives you a options if you want delete your own comment. The delete comment page also contains a cancel button. The cancel button will take you back to the home page.
 
 - Login
-  - Login is a page that contains a form to login to the site. The form contains a username field and a password field. The login page also contains a cancel button.
+  - Login is a page that contains a form to login to the site. The form contains a username field and a password field. The login page also contains a cancel button. 
+  
+- Register
+  - Register is a page that contains a form to register an account. The form contains a username field, email field, password field, and a confirm password field. The email field is optional. You must be registered to post and comment on the site.
+
+- Logout
+  - Is a button that will log you out of the site. It will ask you if you are sure the sign out. And redirect you to the home page.
+
+- A 404 page has been added to the site. If you try to access a page that does not exist. It will redirect you to the 404 page. And option to go back to the home page.
+  
+- About Page
+  - The about page contains information about the site and the site owner and goals.
 
 ## Database Model
 
