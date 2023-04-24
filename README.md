@@ -20,6 +20,16 @@ This is a blog for training purposes. You can register accounts and post informa
   - [Features](#features)
     - [General Features](#general-features)
     - [Home Page](#home-page)
+    - [About Page](#about-page)
+    - [Post Detail Page](#post-detail-page)
+    - [Add Post Page](#add-post-page)
+    - [Edit Post Page](#edit-post-page)
+    - [Delete Post Page](#delete-post-page)
+    - [Comment Post Page](#comment-post-page)
+    - [Delete Comment Page](#delete-comment-page)
+    - [Login Page](#login-page)
+    - [Register Page](#register-page)
+    - [404 Page](#404-page)
   - [Technologies Used](#technologies-used)
     - [Languages](#languages)
     - [Frameworks, Libraries \& Programs](#frameworks-libraries--programs)
@@ -152,7 +162,6 @@ For the buttons I used a lighter color #6c757d;
 And white for the background color #fff; So the pictures/content will stand out. And be in focus.
 All the social links and links on the header is #0d6efd; For a more pop out effect.
 
-
 ## Features
 
 ### General Features
@@ -163,7 +172,75 @@ All the social links and links on the header is #0d6efd; For a more pop out effe
 - Search bar is available on all pages.
 - Footer is available on all pages. And contains links to social media.
 
+A easy to use and navigate site. With a simple and effective design.
+![Alt text](/assets/wireframes/navbar.png?raw=true "Navbar")
+On the site you have a search bar. So you can search for a post.
+![Alt text](/assets/wireframes/search_bar.png?raw=true "Search")
+And a footer with links to social media.
+![Alt text](/assets/wireframes/footer.png?raw=true "Footer")
+
+
 ### Home Page
+
+- The home page contains a list of all the posts on the site.
+- Home page has a search bar. So you can search for a post.
+- You can click on the post to view the post detail page.
+- Depending if you are logged in or not. You will see different options.
+- You can like a post if you are logged in.
+- Comment on a post if you are logged in.
+- And edit or delete a post if you are logged in and the post is yours.
+- Below the list of posts is a pagination bar. So you can navigate between pages. After 6 posts.
+
+### About Page
+
+- The about page contains information about the site and the site owner and goals.
+
+### Post Detail Page
+
+- The post detail page contains the post title, author, content, and date created.
+- Options to like the post, comment on the post, edit the post, and delete the post.
+- If you are not logged in you will not see the options to like, comment, edit, and delete the post.
+- You can only delete post if you are logged in and the post is yours.
+
+### Add Post Page
+
+- The add post page contains a form to add a post.
+- You must be logged in to add a post.
+
+### Edit Post Page
+
+- The edit post page contains a form to edit a post.
+- You must be logged in to edit a post.
+  
+### Delete Post Page
+
+- The delete post page contains a form to delete a post.
+- You must be logged in to delete a post.
+
+### Comment Post Page
+
+- The comment post page contains a form to comment on a post.
+- You must be logged in to comment on a post.
+
+### Delete Comment Page
+
+- The delete comment page contains a form to delete a comment.
+- You must be logged in to delete a comment.
+
+### Login Page
+
+- The login page contains a form to login.
+- If you dont have an account you can click on the link to register.
+  
+### Register Page
+
+- The register page contains a form to register.
+
+### 404 Page
+
+- The 404 page contains a message that the page does not exist.
+
+  
 
 ## Technologies Used
 
@@ -186,6 +263,10 @@ All the social links and links on the header is #0d6efd; For a more pop out effe
   - Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development.
 - jQuery
   - jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax.
+- Google Fonts
+  - Google Fonts is a library of 1080 free licensed font families and APIs for conveniently using the fonts via CSS and Android.
+- Font Awesome
+  - Font Awesome is a font and icon toolkit based on CSS and LESS.
 
 ### Packages
 
@@ -197,6 +278,12 @@ All the social links and links on the header is #0d6efd; For a more pop out effe
 
 - Cloudinary
   - Cloudinary is a cloud-based image and video management service.
+  
+- Allauth
+  - Allauth is a Django application that takes care of user registration, authentication, account management as well as 3rd party (social) account authentication.
+  
+- Django Crispy Forms
+  - Crispy Forms is a Django application that allows you to control the form rendering behavior in your templates.
 
 ### Databases
 
@@ -235,10 +322,15 @@ All the social links and links on the header is #0d6efd; For a more pop out effe
 - JSHint
   - Used to validate the JavaScript code.
 
+- Heroku
+  - To deploy the project.
+
+- Chrome DevTools
+  - To test the website across a variety of popular devices.
+
 ## Testing
 
 Testing information can be found in a separate file [here](TESTING.md).
-
 
 ## Deployment
 
