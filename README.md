@@ -2,7 +2,7 @@
 
 ## General Information
 
-This is a blog for training purposes. You can register accounts and post information and traning tips for others to see. You can also comment on other posts. Like them and unlike them. You can also edit and delete your own posts. You can also upload training pictures. Link to the live site can be found [here](https://letstrain.herokuapp.com/).
+This is a blog for training purposes. You can register accounts and post information and training tips for others to see. You can also comment on other posts. Like them and unlike them. You can also edit and delete your own posts. You can also upload training pictures. Link to the live site can be found [here](https://letstrain.herokuapp.com/).
 
 ## Table of Contents
 
