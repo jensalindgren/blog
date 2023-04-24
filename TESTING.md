@@ -154,3 +154,202 @@ W3C CSS Validator was used to validate the CSS code. https://jigsaw.w3.org/css-v
 <summary>No problem from the css.</summary>
 <img src="assest/../assets/wireframes/css.png">
 </details>
+
+### Python
+
+For my Python code I used PyLint to check for errors. I double checked the code with pycharm and it was not showing any errors.
+
+### JavaScript
+
+I used JSHint to check for errors in my JavaScript code. No errors were found.
+
+## Accessibility
+
+I used light house to check the accessibility of the website. I got okey results. I uploaded the pictures to cloudinary to make the website faster. I think that is the reason why I got a bad result on the performance is that the picture I uploaded to cloudinary is not loading fast enough.
+
+<details>
+<summary>1.</summary>
+<img src="assest/../assets/wireframes/light_1.png">
+</details>
+
+<details>
+<summary>2.</summary>
+<img src="assest/../assets/wireframes/light_2.png">
+</details>
+
+<details>
+<summary>3.</summary>
+<img src="assest/../assets/wireframes/light_2.png">
+</details>
+
+<details>
+<summary>4.</summary>
+<img src="assest/../assets/wireframes/light_4.png">
+</details>
+
+<details>
+<summary>5.</summary>
+<img src="assest/../assets/wireframes/light_5.png">
+</details>
+
+<details>
+<summary>6.</summary>
+<img src="assest/../assets/wireframes/light_6.png">
+</details>
+
+<details>
+<summary>7.</summary>
+<img src="assest/../assets/wireframes/light_7.png">
+</details>
+
+<details>
+<summary>8.</summary>
+<img src="assest/../assets/wireframes/light_8.png">
+</details>
+
+## Tool for testing
+
+Chrome DevTools was used to test the website on different devices and browsers.
+And http://ami.responsivedesign.is/# was for responsiveness of the site pages across different devices.
+
+## Manual testing
+
+### Home page
+
+* Tested the navigation bar to make sure it is working properly.
+* All the links in the navigation bar are working properly.
+* All the links in the footer are working properly. And the social media links are opening in a new tab.
+* All the buttons are working properly.
+* ALl the content is displayed properly.
+* All the right content is displayed for the right user.
+* Displayed the post list in the newest first order.
+* With the search bar I was able to search for a specific post.
+* Data is being displayed in the right order.
+* Post author is displayed.
+* Likes are displayed.
+* All the edit and delete buttons are displayed for the right user.
+* * All right message is displayed for the right user.
+
+### Post detail page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the right content is displayed for the right user.
+* All the comments are displayed.
+* All dates are displayed in the right format.
+* All likes are displayed.
+* All comments are displayed in the right order.
+* All edit and delete buttons are displayed for the right user.
+* All right message is displayed for the right user.
+
+### Add Post page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the content is displayed properly.
+* All the form is working properly.
+* All the right message is displayed for the right user.
+* All the right functionality from the form is working properly.
+
+### Edit Post page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the name of the post is displayed.
+* All the right message is displayed for the right user.
+* All the right tools to edit the post are displayed.
+* All the old content is displayed.
+* All the right message is displayed for the right user.
+
+### Delete Post page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the right message is displayed for the right user.
+* All the right functionality from the form is working properly.
+* All the content and comments are deleted. And the post is deleted from the database.
+
+### Register page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the right message is displayed for the right user.
+* All the right functionality from the form is working properly.
+* All the right account is created.
+  
+### Login page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the right message is displayed for the right user.
+* All the right functionality from the form is working properly.
+* All the right account is logged in.
+* All the right content is displayed for the right user. And its working properly.
+* All the right to add a post comment and like. Edit and delete post is working properly.
+
+### Sign out page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the right message is displayed for the right user.
+* All the right functionality from the form is working properly.
+* All the right account is logged out.
+
+### Comment page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the right functionality from the form is working properly.
+* All the right comment is added to the post.
+* All the right message is displayed from the right user.
+* All the right choice is displayed for the right user. So they can edit or delete the comment.
+
+### Edit Comment page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the right functionality from the form is working properly.
+* All the right comment is edited.
+* All the right message is displayed from the right user.
+* All the form is working properly.
+* All the comment on the specific post on the specific comment is edited.
+* All the right comment is edited in the database.
+
+### Delete Comment page
+
+* All the buttons are working properly.
+* ALL the content is displayed properly.
+* All the right functionality from the form is working properly.
+* All the right comment is deleted.
+* All the right message is displayed from the right user.
+* All the right comment is deleted from the database.
+
+### About page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+* All the right message is displayed for the right user.
+
+### 404 page
+
+* All the buttons are working properly.
+* All the content is displayed properly.
+
+### Messages
+
+* All the right message is displayed for the right user.
+* When they are logged in or logged out.
+* Edit or delete a post.
+* Edit or delete a comment.
+* Add a post or comment.
+
+### Forms 
+
+* All the forms are working properly.
+* All the right message is displayed for the right user.
+* All the right functionality from the form is working properly.
+* All the right ability to add a post or comment is working properly.
+* All the right edit and delete functionality is working properly.
+
+
+[Back to the Testing section in the README.md file](https://github.com/jensalindgren/blog#deploying-to-heroku)
